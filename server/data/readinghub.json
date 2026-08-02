@@ -1,0 +1,76 @@
+{
+  "books": [],
+  "settings": {
+    "ownerName": "Lector",
+    "yearlyGoal": 12,
+    "theme": "dark",
+    "accentColor": "#8B5CF6",
+    "avatarUrl": ""
+  },
+  "monthlyPages": [],
+  "customLevels": [
+    {
+      "level": 1,
+      "xp": 0,
+      "title": "Lector Curioso",
+      "icon": "📖"
+    },
+    {
+      "level": 2,
+      "xp": 1000,
+      "title": "Devorador",
+      "icon": "🔍"
+    },
+    {
+      "level": 3,
+      "xp": 5000,
+      "title": "Explorador",
+      "icon": "🌱"
+    },
+    {
+      "level": 4,
+      "xp": 6000,
+      "title": "Erudito",
+      "icon": "⚡"
+    },
+    {
+      "level": 5,
+      "xp": 10000,
+      "title": "Sabio",
+      "icon": "🧠"
+    },
+    {
+      "level": 6,
+      "xp": 20000,
+      "title": "Archivista",
+      "icon": "🏛️"
+    },
+    {
+      "level": 7,
+      "xp": 30000,
+      "title": "Maestro",
+      "icon": "🌌"
+    },
+    {
+      "level": 8,
+      "xp": 50000,
+      "title": "Leyenda",
+      "icon": "👑"
+    },
+    {
+      "level": 9,
+      "xp": 99999,
+      "title": "Explorador del Conocimiento",
+      "icon": "🔮"
+    }
+  ],
+  "documents": [],
+  "customAchievements": [],
+  "achievementOverrides": [],
+  "challengeOverrides": [],
+  "customChallenges": [],
+  "categoryOverrides": {},
+  "collections": [],
+  "notifications": [],
+  "sessions": []
+}

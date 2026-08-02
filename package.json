@@ -1,0 +1,27 @@
+{
+  "name": "readinghub",
+  "version": "1.0.0",
+  "description": "ReadingHub — Sistema personal de lectura",
+  "private": true,
+  "license": "MIT",
+  "author": "Nicolas",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enedos/readinghub.git"
+  },
+  "homepage": "https://github.com/enedos/readinghub#readme",
+  "bugs": {
+    "url": "https://github.com/enedos/readinghub/issues"
+  },
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client --legacy-peer-deps",
+    "build:client": "npm run build --prefix client",
+    "start": "node server/index.js",
+    "dev": "concurrently \"node server/index.js\" \"npm run dev --prefix client\"",
+    "setup": "npm run install:all && npm run build:client",
+    "postinstall": "npm run install:all"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

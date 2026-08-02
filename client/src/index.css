@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── Type tokens (shared across themes — fonts don't change with theme) ── */
+:root {
+  --rx-font-sans:  'Space Grotesk', system-ui, sans-serif;
+  --rx-font-serif: 'Fraunces', serif;
+  --rx-font-mono:  'JetBrains Mono', monospace;
+}
+
+/* ── Theme tokens ─────────────────────────────────────────── */
+:root {
+  /* Deep space base — blue tint instead of neutral black,
+     reads as "deep space" rather than "dimmed interface" */
+  --rx-bg-base:    #0A0B14;
+  --rx-bg-surface: #12131C;
+  --rx-bg-card:    #1B1D2B;
+  --rx-bg-hover:   #232539;
+  --rx-border:     #2A2C3E;
+  /* Violeta núcleo — identidad de marca, navegación activa, el orbe */
+  --rx-accent:     #8B5CF6;
+  --rx-accent-mid: rgba(139,92,246,0.15);
+  /* Ámbar de energía — XP, niveles, logros (todo lo que se "gana") */
+  --rx-xp:         #FFB84D;
+  --rx-success:    #22C55E;
+  /* Cian de datos — repurposed from the old generic "info" blue: this is
+     now specifically "estado activo / dato en vivo" (reading status,
+     active chart series, live indicators) */
+  --rx-info:       #22D3EE;
+  --rx-info-mid:   rgba(34,211,238,0.12);
+  --rx-danger:     #EF4444;
+  /* Magenta de rareza — uso puntual, solo para logros Legendarios */
+  --rx-magenta:    #C6409A;
+  --rx-ink1:       #F0F0F8;
+  --rx-ink2:       #9898B0;
+  --rx-ink3:       #5A5A72;
+  --rx-ink4:       #3A3A50;
+  --rx-shadow:     rgba(0,0,0,0.5);
+  /* Shared across themes: dark scrim behind modals/tooltips, and text
+     placed directly on a solid accent/status fill (buttons, pills, badges) */
+  --rx-overlay:    rgba(0,0,0,0.65);
+  --rx-on-accent:  #FFFFFF;
+}
+
+:root.light {
+  /* Ramp fixed: base < surface < hover < card, each a real, measured step
+     (previously surface was lighter than base and the whole ramp sat at
+     ~1.07:1 contrast — imperceptible, so panels never visually separated) */
+  --rx-bg-base:    #E8E7EF;
+  --rx-bg-surface: #F0EFF5;
+  --rx-bg-card:    #FFFFFF;
+  --rx-bg-hover:   #F6F5F9;
+  /* Was #DADADF on white = 1.39:1 (barely visible). Now ~1.99:1 — cards
+     and inputs actually read as separated instead of blending into white. */
+  --rx-border:     #B8B6C8;
+  /* Violeta núcleo — same hue family as dark mode's #8B5CF6, darkened for
+     contrast on white (measured 6.09:1). */
+  --rx-accent:     #5B52C4;
+  --rx-accent-mid: rgba(91,82,196,0.08);
+  /* Ámbar de energía — darkened from #FFB84D (which measures only 1.72:1
+     on white — far too light to use directly as text/icon color here). */
+  --rx-xp:         #8F5C00;
+  --rx-success:    #15803D;
+  /* Cian de datos — the dark-mode cyan #22D3EE measures 1.81:1 on white,
+     unusable directly for text/icons. This is a deep teal-cyan in the same
+     hue family, measured at ~4.88:1. */
+  --rx-info:       #0E7C90;
+  --rx-info-mid:   rgba(14,124,144,0.08);
+  --rx-danger:     #C41E1E;
+  /* Magenta de rareza — darkened from #C6409A (4.56:1, workable but tight)
+     to ~6.76:1 for safer use in badges/labels, same hue family. */
+  --rx-magenta:    #9B3178;
+  --rx-ink1:       #111118;
+  --rx-ink2:       #3A3A50;
+  --rx-ink3:       #72728A;
+  /* Was #B0B0C0 on white = 2.14:1 (fails badly — used in 139 places for
+     hints/labels/kbd). Now ~4.0:1, passes for the small/secondary text it's used on. */
+  --rx-ink4:       #7D7D93;
+  --rx-shadow:     rgba(0,0,0,0.06);
+  --rx-overlay:    rgba(0,0,0,0.45);
+  --rx-on-accent:  #FFFFFF;
+  /* Light-specific: softer book covers and badges, with a faint violet
+     tint instead of plain gray/black so elevated surfaces still feel like
+     part of the same system as dark mode's colored glows. */
+  --rx-cover-shadow: 0 2px 6px rgba(91,82,196,0.12), 0 1px 2px rgba(0,0,0,0.06);
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; background: var(--rx-bg-base); }
+
+html, body, #root {
+  height: 100%;
+  font-family: var(--rx-font-sans);
+  color: var(--rx-ink1);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s, color 0.25s;
+}
+/* body/#root MUST stay transparent — an opaque background here paints
+   over body::before and kills the entire ambient depth layer. */
+body, #root { background: transparent; }
+
+/* ── Ambient background — the "deep space" feel behind everything. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 1000px 700px at 12% -8%, rgba(139,92,246,0.22), transparent 60%),
+    radial-gradient(ellipse 800px 600px at 108% 28%, rgba(34,211,238,0.13), transparent 60%),
+    radial-gradient(ellipse 700px 550px at 20% 108%, rgba(255,184,77,0.07), transparent 60%);
+}
+:root.light body::before {
+  background:
+    radial-gradient(ellipse 1000px 700px at 12% -8%, rgba(91,82,196,0.10), transparent 60%),
+    radial-gradient(ellipse 800px 600px at 108% 28%, rgba(14,124,144,0.07), transparent 60%),
+    radial-gradient(ellipse 700px 550px at 20% 108%, rgba(143,92,0,0.05), transparent 60%);
+}
+/* Subtle grid texture over the wash — the "console" feel from the mockup */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(139,92,246,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,92,246,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black, transparent 75%);
+}
+:root.light body::after { opacity: 0.5; }
+#root { position: relative; z-index: 1; }
+
+::selection { background: var(--rx-accent-mid); color: var(--rx-accent); }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--rx-border); border-radius: 9999px; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; }
+
+/* ── Animations ───────────────────────────────────────────── */
+@keyframes scaleIn { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }
+@keyframes fadeUp  { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn  { from{opacity:0} to{opacity:1} }
+
+.fade-up  { animation: fadeUp  0.4s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+.fade-in  { animation: fadeIn  0.3s ease both; }
+
+input, select, textarea, button { font-family: inherit; }
+a { text-decoration: none; color: inherit; }
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.rx-btn:hover { filter: brightness(1.08); }
+.rx-btn:active { filter: brightness(0.95); transform: scale(0.98); }
+
+/* ── Scrollbars — thin, themed, glows on hover ────────────── */
+* { scrollbar-width: thin; scrollbar-color: var(--rx-border) transparent; }
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--rx-border);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rx-accent);
+  background-clip: padding-box;
+}
+
+/* ── Page layout ──────────────────────────────────────────── */
+.rx-layout { display: flex; min-height: 100vh; }
+.rx-main   { flex: 1; min-width: 0; display: flex; flex-direction: column; overflow: hidden; }
+.rx-content{ flex: 1; overflow-y: auto; }
+
+/* ── Page padding ─────────────────────────────────────────── */
+.rx-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 28px 80px;
+}
+.rx-page-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 28px 80px;
+}
+
+/* ── Mobile sidebar overlay ───────────────────────────────── */
+.rx-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 149;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
+}
+
+/* ── Responsive breakpoints ───────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .rx-page, .rx-page-wide { padding: 24px 20px 80px; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .rx-page, .rx-page-wide { padding: 16px 14px 100px; }
+
+  /* Sidebar slides in as overlay on mobile */
+  .rx-sidebar-mobile-open {
+    position: fixed !important;
+    z-index: 150 !important;
+    box-shadow: 4px 0 32px rgba(0,0,0,0.4);
+  }
+  .rx-overlay { display: block; }
+
+  /* Hamburger button */
+  .rx-hamburger {
+    display: flex !important;
+  }
+
+  /* Grid adjustments */
+  .rx-grid-4 { grid-template-columns: repeat(2,1fr) !important; }
+  .rx-grid-2 { grid-template-columns: 1fr !important; }
+
+  /* Stats charts */
+  .rx-chart-container { overflow-x: auto; }
+
+  /* Library grid */
+  .rx-library-grid {
+    grid-template-columns: repeat(3,1fr) !important;
+  }
+
+  /* Quote cards */
+  .rx-quote-cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Hide XP in navbar on tiny screens */
+  .rx-xp-badge-nav { display: none !important; }
+
+  /* Footer */
+  .rx-footer { flex-direction: column; gap: 4px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .rx-library-grid {
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+  .rx-grid-4 { grid-template-columns: repeat(2,1fr) !important; }
+}
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+@keyframes spin  { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes xpFlow { from{ background-position: 0 0; } to{ background-position: 16px 0; } }
+
+/* ── Light mode overrides ─────────────────────────────────── */
+:root.light .rx-cover-img,
+:root.light img[alt] {
+  box-shadow: var(--rx-cover-shadow) !important;
+}

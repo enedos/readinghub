@@ -11,6 +11,7 @@ interface AppState {
   collections: any[];
   notifications: any[];
   sessions: any[];
+  authorAvatars: Record<string,string>;
 }
 
 const DEFAULT_SETTINGS = { ownerName:'Lector', yearlyGoal:12, theme:'dark', accentColor:'#8B5CF6', avatarUrl:'' };
@@ -53,6 +54,10 @@ interface AppContextValue extends AppState {
   addSession: (s: any) => Promise<any>;
   updateSession: (id: string, s: any) => Promise<any>;
   deleteSession: (id: string) => Promise<void>;
+  // Author avatars
+  authorAvatars: Record<string,string>;
+  uploadAuthorAvatar: (author: string, file: File) => Promise<string>;
+  deleteAuthorAvatar: (author: string) => Promise<void>;
 }
 
 const AppContext = createContext<AppContextValue | null>(null);
@@ -64,6 +69,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     customChallenges:[], categoryOverrides:{}, loading:true, error:null,
     notifications:[],
     sessions:[],
+    authorAvatars:{},
   });
 
   const set = useCallback((u: Partial<AppState>) => setState(s => ({...s,...u})), []);
@@ -75,16 +81,18 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       api.achievementOverrides.list(), api.challengeOverrides.list(),
       api.customChallenges.list(), api.categoryOverrides.get(),
       api.collections.list(), api.notifications.list(), api.sessions.list(),
+      api.authorAvatars.list(),
     ]).then(([books,settings,monthlyPages,customLevels,documents,
               customAchievements,achievementOverrides,challengeOverrides,
-              customChallenges,categoryOverrides,collections,notifications,sessions]) => {
+              customChallenges,categoryOverrides,collections,notifications,sessions,
+              authorAvatars]) => {
       if (settings.theme === 'light') document.documentElement.classList.add('light');
       else document.documentElement.classList.remove('light');
       set({ books, settings, monthlyPages,
             customLevels: customLevels.length > 0 ? customLevels : null,
             documents, customAchievements, achievementOverrides,
             challengeOverrides, customChallenges, categoryOverrides,
-            collections, notifications, sessions, loading:false });
+            collections, notifications, sessions, authorAvatars, loading:false });
     }).catch(err => set({ loading:false, error:`No se pudo conectar con el servidor. ¿Está corriendo? (${err.message})` }));
   }, []);
 
@@ -241,6 +249,21 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setState(st => ({...st, sessions:st.sessions.filter(x => x.id!==id)}));
   }, []);
 
+  const uploadAuthorAvatar = useCallback(async (author: string, file: File) => {
+    const url = await api.authorAvatars.upload(author, file);
+    setState(s => ({...s, authorAvatars:{...s.authorAvatars, [author]:url}}));
+    return url;
+  }, []);
+
+  const deleteAuthorAvatar = useCallback(async (author: string) => {
+    await api.authorAvatars.remove(author);
+    setState(s => {
+      const next = {...s.authorAvatars};
+      delete next[author];
+      return {...s, authorAvatars:next};
+    });
+  }, []);
+
   const addCollection = useCallback(async (col: any) => {
     const created = await api.collections.create(col);
     setState(s => ({...s, collections:[...s.collections, created]}));
@@ -303,6 +326,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       notifications: state.notifications,
       addNotification, markNotificationRead, markNotificationUnread, markAllNotificationsRead, deleteNotification,
       sessions: state.sessions, addSession, updateSession, deleteSession,
+      authorAvatars: state.authorAvatars, uploadAuthorAvatar, deleteAuthorAvatar,
     }}>
       {children}
     </AppContext.Provider>

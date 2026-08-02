@@ -1,7 +1,7 @@
 @echo off
 echo.
 echo   ==========================================
-echo             READINGHUB  v1.0.0
+echo             READINGHUB  v1.0.1
 echo   ==========================================
 echo.
 

@@ -1,10 +1,21 @@
-import { useMemo } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useStore } from '../store';
 import { C, Card, SectionTitle, Stars } from '../components/ui';
 import { bookXP } from '../lib/xp';
 import { useDocumentTitle } from '../lib/useDocumentTitle';
 import { PIE_COLORS, CATEGORY_COLORS } from '../lib/colors';
+
+// Generic default avatar — shown until the user uploads a custom photo/art for this author
+function DefaultAuthorIcon({ size }: { size: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ display:'block' }}>
+      <circle cx="12" cy="12" r="12" fill="rgba(255,255,255,0.12)"/>
+      <circle cx="12" cy="9.5" r="3.6" fill="rgba(255,255,255,0.75)"/>
+      <path d="M4.5 20c1.1-3.6 4.2-5.6 7.5-5.6s6.4 2 7.5 5.6" stroke="rgba(255,255,255,0.75)" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+    </svg>
+  );
+}
 
 function MiniCover({ book, size=52 }: { book: any; size?: number }) {
   const COLORS  = ['#1a1035','#0f1f1a','#1a0f0f','#0f1a2e','#1a150a','#150f1a','#0f1a1a'];
@@ -45,7 +56,12 @@ function getBestQuote(book: any): string {
 export default function AuthorPage() {
   const { authorSlug } = useParams<{ authorSlug: string }>();
   const books    = useStore(s => s.books);
+  const authorAvatars       = useStore(s => s.authorAvatars);
+  const uploadAuthorAvatar  = useStore(s => s.uploadAuthorAvatar);
+  const deleteAuthorAvatar  = useStore(s => s.deleteAuthorAvatar);
   const navigate = useNavigate();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [uploading, setUploading] = useState(false);
 
   // Decode author name from URL slug
   const authorName = decodeURIComponent(authorSlug || '');
@@ -77,8 +93,30 @@ export default function AuthorPage() {
   const displayName = authorName.includes(',')
     ? authorName.split(',').reverse().join(' ').trim()
     : authorName;
-  const initials = displayName.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
   useDocumentTitle(displayName || 'Autor no encontrado');
+
+  const avatarUrl = authorAvatars[authorName];
+
+  async function handleAvatarFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    setUploading(true);
+    try {
+      await uploadAuthorAvatar(authorName, file);
+    } finally {
+      setUploading(false);
+    }
+  }
+
+  async function handleRemoveAvatar() {
+    setUploading(true);
+    try {
+      await deleteAuthorAvatar(authorName);
+    } finally {
+      setUploading(false);
+    }
+  }
 
   if (authorBooks.length === 0) {
     return (
@@ -99,8 +137,22 @@ export default function AuthorPage() {
 
       {/* Author header */}
       <div style={{ display:'flex', alignItems:'center', gap:24, marginBottom:28 }}>
-        <div style={{ width:72, height:72, borderRadius:'50%', background:`linear-gradient(135deg,${C.accent},#4C3A99)`, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, boxShadow:`0 0 24px color-mix(in srgb, ${C.accent} 25%, transparent)` }}>
-          <span style={{ fontSize:24, fontWeight:700, color:C.onAccent, fontFamily:C.fontSerif }}>{initials}</span>
+        <div style={{ position:'relative', width:72, height:72, flexShrink:0 }}>
+          <div style={{ width:72, height:72, borderRadius:'50%', background:`linear-gradient(135deg,${C.accent},#4C3A99)`, display:'flex', alignItems:'center', justifyContent:'center', overflow:'hidden', boxShadow:`0 0 24px color-mix(in srgb, ${C.accent} 25%, transparent)`, opacity:uploading?0.5:1, transition:'opacity 0.15s' }}>
+            {avatarUrl
+              ? <img src={avatarUrl} alt={displayName} style={{ width:'100%', height:'100%', objectFit:'cover' }}/>
+              : <DefaultAuthorIcon size={40}/>}
+          </div>
+          <button onClick={()=>fileInputRef.current?.click()} title={avatarUrl ? 'Cambiar foto' : 'Subir foto'}
+            disabled={uploading}
+            style={{ position:'absolute', bottom:-2, right:-2, width:26, height:26, borderRadius:'50%',
+                      background:C.bgCard, border:`2px solid ${C.bgBase}`, cursor:uploading?'default':'pointer',
+                      display:'flex', alignItems:'center', justifyContent:'center', color:C.ink2, boxShadow:'0 2px 6px rgba(0,0,0,0.4)' }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/>
+            </svg>
+          </button>
+          <input ref={fileInputRef} type="file" accept="image/*" onChange={handleAvatarFile} style={{ display:'none' }}/>
         </div>
         <div>
           <p style={{ fontSize:10, fontWeight:600, letterSpacing:'0.12em', textTransform:'uppercase', color:C.ink3, marginBottom:4 }}>AUTOR</p>
@@ -109,6 +161,12 @@ export default function AuthorPage() {
             {authorBooks.length} libro{authorBooks.length!==1?'s':''} en tu biblioteca
             {finished.length > 0 ? ` · ${finished.length} terminados` : ''}
           </p>
+          {avatarUrl && (
+            <button onClick={handleRemoveAvatar} disabled={uploading}
+              style={{ fontSize:11, color:C.ink4, background:'none', border:'none', cursor:uploading?'default':'pointer', padding:0, marginTop:4, textDecoration:'underline' }}>
+              Quitar foto personalizada
+            </button>
+          )}
         </div>
       </div>
 

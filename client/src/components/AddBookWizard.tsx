@@ -363,14 +363,22 @@ export function AddBookWizard({ open, onClose }: { open: boolean; onClose: () =>
         </div>
       )}
 
-      {/* ── Step 3: Review + rating ── */}
+      {/* ── Step 3: Review + details ── */}
       {step === 3 && (
         <div style={{ display: 'grid', gap: 18 }}>
-          <div>
-            <p style={{ fontSize: 11, fontWeight: 500, color: C.ink3, letterSpacing: '0.04em', marginBottom: 10 }}>CALIFICACIÓN</p>
-            <Stars rating={form.rating} size={28} interactive onChange={v => set('rating', v)} />
-            {form.rating > 0 && <p style={{ fontSize: 12, color: C.ink3, marginTop: 8 }}>{['','No me gustó','Regular','Bien','Muy bueno','Excelente'][form.rating]}</p>}
-          </div>
+          {form.status === 'finished' ? (
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 500, color: C.ink3, letterSpacing: '0.04em', marginBottom: 10 }}>CALIFICACIÓN</p>
+              <Stars rating={form.rating} size={28} interactive onChange={v => set('rating', v)} />
+              {form.rating > 0 && <p style={{ fontSize: 12, color: C.ink3, marginTop: 8 }}>{['','No me gustó','Regular','Bien','Muy bueno','Excelente'][form.rating]}</p>}
+            </div>
+          ) : (
+            <div style={{ padding: '10px 14px', borderRadius: 10, background: C.bgSurface, border: `1px solid ${C.border}` }}>
+              <p style={{ fontSize: 12, color: C.ink3 }}>
+                Vas a poder calificarlo y marcarlo como recomendado cuando lo termines.
+              </p>
+            </div>
+          )}
           <div>
             <p style={{ fontSize: 11, fontWeight: 500, color: C.ink3, letterSpacing: '0.04em', marginBottom: 8 }}>
               DIFICULTAD: {['','Muy fácil','Fácil','Medio','Difícil','Muy difícil'][form.difficulty]}
@@ -378,10 +386,12 @@ export function AddBookWizard({ open, onClose }: { open: boolean; onClose: () =>
             <input type="range" min={1} max={5} value={form.difficulty} onChange={e => set('difficulty', Number(e.target.value))} style={{ width: '100%', accentColor: C.accent }} />
           </div>
           <Textarea label="Notas rápidas (opcional)" value={form.notes} onChange={v => set('notes', v)} rows={3} placeholder="¿Qué te pareció? ¿Qué te llevás?" />
-          <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
-            <input type="checkbox" checked={form.recommended} onChange={e => set('recommended', e.target.checked)} style={{ accentColor: C.accent, width: 16, height: 16 }} />
-            <span style={{ fontSize: 13, color: C.ink2 }}>Lo recomendaría</span>
-          </label>
+          {form.status === 'finished' && (
+            <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
+              <input type="checkbox" checked={form.recommended} onChange={e => set('recommended', e.target.checked)} style={{ accentColor: C.accent, width: 16, height: 16 }} />
+              <span style={{ fontSize: 13, color: C.ink2 }}>Lo recomendaría</span>
+            </label>
+          )}
           {/* Summary */}
           <div style={{ padding: 14, background: C.bgSurface, borderRadius: 12, border: `1px solid ${C.border}` }}>
             <p style={{ fontSize: 12, color: C.ink3, marginBottom: 10 }}>RESUMEN</p>

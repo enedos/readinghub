@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useStore } from '../store';
 import { C, Card, SectionTitle } from './ui';
+import { usePersistedState } from '../lib/usePersistedState';
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell,
 } from 'recharts';
@@ -28,6 +29,7 @@ export function MonthlyPagesTracker({ year }: { year: number }) {
   const [editing, setEditing] = useState<string | null>(null);
   const [inputVal, setInputVal] = useState('');
   const [inputNote, setInputNote] = useState('');
+  const [noteDismissed, setNoteDismissed] = usePersistedState('monthly-pages-note-dismissed', false);
 
   // Build chart data
   const chartData = isHistoric
@@ -73,6 +75,25 @@ export function MonthlyPagesTracker({ year }: { year: number }) {
         )}
       </div>
 
+      {/* Info note — manual entry isn't obvious, especially compared to every
+          other stat on this page which is calculated automatically. Dismissible,
+          stays dismissed (localStorage) once closed. */}
+      {!noteDismissed && (
+        <div style={{ display:'flex', alignItems:'flex-start', gap:10, padding:'10px 12px',
+                      borderRadius:10, background:'var(--rx-accent-mid)',
+                      border:`1px solid color-mix(in srgb, ${C.accent} 25%, transparent)`,
+                      marginBottom:14 }}>
+          <span style={{ fontSize:14, lineHeight:1, flexShrink:0, marginTop:1 }}>ℹ️</span>
+          <p style={{ fontSize:11.5, color:C.ink2, lineHeight:1.5, flex:1 }}>
+            Este bloque se carga de forma manual — a diferencia del resto de las estadísticas,
+            no se calcula solo a partir de tus sesiones de lectura. Hacé click en un mes para cargar las páginas leídas.
+          </p>
+          <button onClick={()=>setNoteDismissed(true)} title="Cerrar"
+            style={{ background:'none', border:'none', cursor:'pointer', color:C.ink3, fontSize:14,
+                      lineHeight:1, padding:2, flexShrink:0 }}>✕</button>
+        </div>
+      )}
+
       {/* Chart */}
       <ResponsiveContainer width="100%" height={140}>
         <BarChart data={chartData} barSize={20} margin={{ top: 4, right: 4, left: -28, bottom: 0 }}>
@@ -80,12 +101,22 @@ export function MonthlyPagesTracker({ year }: { year: number }) {
           <YAxis allowDecimals={false} tick={{ fontSize: 10, fill: C.ink3 }} axisLine={false} tickLine={false} />
           <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(139,92,246,0.06)' }} />
           <Bar dataKey="páginas" radius={[4, 4, 0, 0]}>
-            {chartData.map((d, i) => (
-              <Cell key={i}
-                fill={d.páginas === maxPages && d.páginas > 0 ? C.accent
-                    : d.key === currentKey ? 'rgba(139,92,246,0.4)'
-                    : C.bgHover} />
-            ))}
+            {chartData.map((d, i) => {
+              const isCurrent = d.key === currentKey;
+              let fill = C.bgHover;
+              if (d.páginas > 0) {
+                // Scale intensity 40%–100% by relative volume so low (but real)
+                // months stay clearly visible instead of blending into the background.
+                const ratio = maxPages > 0 ? d.páginas / maxPages : 0;
+                const pct = Math.round(40 + ratio * 60);
+                fill = `color-mix(in srgb, ${C.accent} ${pct}%, ${C.bgSurface})`;
+              }
+              return (
+                <Cell key={i} fill={fill}
+                  stroke={isCurrent ? C.accent : 'none'}
+                  strokeWidth={isCurrent ? 1.5 : 0} />
+              );
+            })}
           </Bar>
         </BarChart>
       </ResponsiveContainer>

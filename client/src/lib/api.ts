@@ -50,6 +50,19 @@ export const api = {
     },
   },
 
+  authorAvatars: {
+    list: () => get<Record<string,string>>('/author-avatars'),
+    upload: async (author: string, file: File): Promise<string> => {
+      const fd = new FormData();
+      fd.append('author', author);
+      fd.append('avatar', file);
+      const res = await fetch('/api/author-avatars/upload', { method: 'POST', body: fd });
+      const data = await res.json();
+      return data.url;
+    },
+    remove: (author: string) => del<any>(`/author-avatars/${encodeURIComponent(author)}`),
+  },
+
   monthlyPages: {
     list:   ()                              => get<any[]>('/monthly-pages'),
     set:    (yearMonth: string, pages: number, notes?: string) =>

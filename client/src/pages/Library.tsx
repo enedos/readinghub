@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useStore } from '../store';
 import { bookXP } from '../lib/xp';
 import { usePersistedState } from '../lib/usePersistedState';
-import { C, Stars, StatusBadge, Modal, Input, Select, Textarea, Btn } from '../components/ui';
+import { C, Stars, StatusBadge, Modal, Input, Select, Textarea, Btn, ProgressBar } from '../components/ui';
 import { useFixedTooltip, FixedTooltip } from '../components/Tooltip';
 import { CATEGORY_COLORS, STATUS_COLORS } from '../lib/colors';
 import type { Book, BookStatus, BookFormat } from '../types';
@@ -271,8 +271,9 @@ export default function LibraryPage({ onAddBook }: { onAddBook?: () => void }) {
   }, [books, status, tag, search, sort, format]);
 
   // Main list excludes reading books when they're already pinned above,
-  // so they don't appear twice.
-  const mainList = showPinned ? filtered.filter(b=>b.status!=='reading') : filtered;
+  // so they don't appear twice. The shelf view groups by status itself
+  // (including its own "Leyendo ahora" plank), so it keeps them inline.
+  const mainList = (showPinned && view !== 'shelf') ? filtered.filter(b=>b.status!=='reading') : filtered;
 
   const activeFilterCount = (tag!=='all'?1:0) + (format!=='all'?1:0);
   const totalPages = books.filter(b=>b.status==='finished').reduce((a,b)=>a+(b.pages||0),0);
@@ -410,34 +411,91 @@ export default function LibraryPage({ onAddBook }: { onAddBook?: () => void }) {
         </div>
       </div>
 
-      {/* ── Leyendo ahora — fijo arriba, ya no se hunde al final de "Todos" ── */}
-      {showPinned && pinnedReading.length > 0 && (
+      {/* ── Leyendo ahora — fijo arriba, ya no se hunde al final de "Todos" ──
+           Se adapta a la vista activa: en grid usa tarjetas del mismo tamaño
+           que el resto, en lista usa filas de tabla, y en estante no se
+           duplica porque esa vista ya agrupa "Leyendo ahora" como su propio
+           estante (ver más abajo). */}
+      {showPinned && view !== 'shelf' && pinnedReading.length > 0 && (
         <div style={{ marginBottom:36 }}>
           <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:14 }}>
             <span style={{ width:3, height:11, borderRadius:2, background:'#3B82F6', boxShadow:'0 0 6px #3B82F6', display:'inline-block' }}/>
             <p style={{ fontSize:11, fontWeight:600, color:C.ink3, textTransform:'uppercase', letterSpacing:'0.1em' }}>Leyendo ahora</p>
           </div>
-          <div style={{ display:'flex', gap:14, overflowX:'auto', paddingBottom:4 }}>
-            {pinnedReading.map(book=>{
-              const pct = book.pages > 0 ? Math.min(Math.round((book.pagesRead/book.pages)*100),100) : 0;
-              return (
-                <div key={book.id} onClick={()=>navigate(`/books/${book.id}`)} style={{ flexShrink:0, width:110, cursor:'pointer' }}>
-                  <div style={{ width:110, aspectRatio:'2/3', borderRadius:8, position:'relative', overflow:'hidden',
-                                boxShadow:'0 8px 20px rgba(0,0,0,0.4)', border:'1px solid rgba(59,130,246,0.3)' }}>
-                    <BookCover book={book}/>
-                    <div style={{ position:'absolute', bottom:0, left:0, right:0, height:4, background:'rgba(0,0,0,0.4)' }}>
-                      <div style={{ height:'100%', width:`${pct}%`, background:'#3B82F6' }}/>
+
+          {view === 'grid' && (
+            <div style={{
+              display:'grid',
+              gridTemplateColumns:'repeat(auto-fill,minmax(130px,1fr))',
+              gap:24,
+            }}>
+              {pinnedReading.map(book=>{
+                const pct = book.pages > 0 ? Math.min(Math.round((book.pagesRead/book.pages)*100),100) : 0;
+                return (
+                  <div key={book.id} onClick={()=>navigate(`/books/${book.id}`)} style={{ cursor:'pointer' }} className="fade-in">
+                    <div style={{ aspectRatio:'2/3', borderRadius:12, overflow:'hidden', position:'relative',
+                                  background:C.bgCard, border:'1px solid rgba(59,130,246,0.35)',
+                                  boxShadow:'0 4px 14px rgba(0,0,0,0.35)' }}>
+                      <BookCover book={book}/>
+                      <div style={{ position:'absolute', bottom:0, left:0, right:0, height:4, background:'rgba(0,0,0,0.4)' }}>
+                        <div style={{ height:'100%', width:`${pct}%`, background:'#3B82F6' }}/>
+                      </div>
+                    </div>
+                    <div style={{ marginTop:10 }}>
+                      <p style={{ fontSize:12, fontWeight:500, color:C.ink1, lineHeight:1.4,
+                                   overflow:'hidden', display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical' }}>
+                        {book.title}
+                      </p>
+                      <p style={{ fontSize:11, color:'#3B82F6', marginTop:3, fontFamily:C.fontMono }}>{pct}%</p>
                     </div>
                   </div>
-                  <p style={{ fontSize:11, fontWeight:500, color:C.ink1, marginTop:8, lineHeight:1.3,
-                               overflow:'hidden', display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical' }}>
-                    {book.title}
-                  </p>
-                  <p style={{ fontSize:10, color:'#3B82F6', fontFamily:C.fontMono, marginTop:2 }}>{pct}%</p>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )}
+
+          {view === 'list' && (
+            <div style={{ border:'1px solid rgba(59,130,246,0.35)', borderRadius:12, overflow:'hidden' }}>
+              <div style={{ display:'grid', gridTemplateColumns:'48px 1fr 180px 120px 90px',
+                            gap:16, padding:'10px 16px',
+                            fontSize:10, color:C.ink3, fontWeight:600, letterSpacing:'0.1em',
+                            textTransform:'uppercase', borderBottom:`1px solid ${C.border}`,
+                            background:C.bgSurface }}>
+                <span/>
+                <span>Título</span><span>Autor</span><span>Progreso</span><span style={{textAlign:'right'}}>Páginas</span>
+              </div>
+              {pinnedReading.map((book,i)=>{
+                const author = book.author.includes(',') ? book.author.split(',').reverse().join(' ').trim() : book.author;
+                const pct = book.pages > 0 ? Math.min(Math.round((book.pagesRead/book.pages)*100),100) : 0;
+                return (
+                  <div key={book.id} onClick={()=>navigate(`/books/${book.id}`)}
+                    style={{ display:'grid', gridTemplateColumns:'48px 1fr 180px 120px 90px',
+                              gap:16, padding:'12px 16px', cursor:'pointer', alignItems:'center',
+                              borderBottom:i<pinnedReading.length-1?`1px solid ${C.border}`:'none',
+                              transition:'background 0.15s', background:'transparent' }}
+                    onMouseEnter={e=>(e.currentTarget.style.background=C.bgHover)}
+                    onMouseLeave={e=>(e.currentTarget.style.background='transparent')}>
+                    <div style={{ width:32, height:48, borderRadius:4, overflow:'hidden', flexShrink:0 }}>
+                      <BookCover book={book} />
+                    </div>
+                    <div style={{ minWidth:0 }}>
+                      <p style={{ fontSize:13, fontWeight:500, color:C.ink1,
+                                   overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{book.title}</p>
+                      <p style={{ fontSize:11, color:C.ink4, marginTop:2 }}>{book.year}</p>
+                    </div>
+                    <p style={{ fontSize:12, color:C.ink2, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{author}</p>
+                    <div>
+                      <ProgressBar value={pct} color="#3B82F6" height={5}/>
+                      <p style={{ fontSize:10, color:'#3B82F6', marginTop:3, fontFamily:C.fontMono }}>{pct}%</p>
+                    </div>
+                    <p style={{ fontSize:12, color:C.ink3, fontFamily:C.fontMono, textAlign:'right' }}>
+                      {book.pagesRead}/{book.pages}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
 

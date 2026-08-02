@@ -27,12 +27,14 @@ const db = new Low(adapter, {
   customChallenges: [], categoryOverrides: {}, collections: [],
   notifications: [],
   sessions: [],
+  authorAvatars: {},
 });
 await db.read();
 // Ensure new fields exist on old DBs
 if (!db.data.collections)    db.data.collections = [];
 if (!db.data.notifications)  db.data.notifications = [];
 if (!db.data.sessions)       db.data.sessions = [];
+if (!db.data.authorAvatars)  db.data.authorAvatars = {};
 
 let saveTimer;
 const save = () => { clearTimeout(saveTimer); saveTimer = setTimeout(() => db.write(), 300); };
@@ -107,6 +109,34 @@ app.post('/api/settings/avatar', upload.single('avatar'), (req, res) => {
   if (!req.file) return res.status(400).json({error:'No file'});
   const url = `/covers/${req.file.filename}`;
   db.data.settings.avatarUrl = url; save(); res.json({url});
+});
+
+// ═══ AUTHOR AVATARS ══════════════════════════════════════════
+app.get('/api/author-avatars', (req, res) => res.json(db.data.authorAvatars));
+
+app.post('/api/author-avatars/upload', upload.single('avatar'), (req, res) => {
+  if (!req.file) return res.status(400).json({error:'No file'});
+  const author = req.body.author;
+  if (!author) return res.status(400).json({error:'Missing author'});
+  // Replace previous custom avatar file for this author, if any
+  const prev = db.data.authorAvatars[author];
+  if (prev?.startsWith('/covers/')) {
+    const f = path.join(COVERS_DIR, path.basename(prev));
+    if (fs.existsSync(f)) fs.unlinkSync(f);
+  }
+  const url = `/covers/${req.file.filename}`;
+  db.data.authorAvatars[author] = url; save(); res.json({url});
+});
+
+app.delete('/api/author-avatars/:author', (req, res) => {
+  const author = decodeURIComponent(req.params.author);
+  const prev = db.data.authorAvatars[author];
+  if (prev?.startsWith('/covers/')) {
+    const f = path.join(COVERS_DIR, path.basename(prev));
+    if (fs.existsSync(f)) fs.unlinkSync(f);
+  }
+  delete db.data.authorAvatars[author];
+  save(); res.json({ok:true});
 });
 
 // ═══ MONTHLY PAGES ═══════════════════════════════════════════
@@ -338,7 +368,7 @@ app.get('*', (req,res) => {
 // ── Start ─────────────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log('\n  ╔══════════════════════════════════════════╗');
-  console.log('  ║        READINGHUB  v1.0.0                ║');
+  console.log('  ║        READINGHUB  v1.0.1                ║');
   console.log('  ╚══════════════════════════════════════════╝');
   console.log(`\n  → http://localhost:${PORT}`);
   console.log(`  → Datos: ${path.join(DATA_DIR, 'readinghub.json')}`);

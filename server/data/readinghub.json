@@ -1,5 +1,881 @@
 {
-  "books": [],
+  "books": [
+    {
+      "id": "0m9vezhjzaj6",
+      "cover": "https://covers.openlibrary.org/b/isbn/9788499926390-L.jpg",
+      "language": "es",
+      "start": "2026-01-08",
+      "end": "2026-01-29",
+      "pages": 610,
+      "pagesRead": 610,
+      "rating": 5,
+      "difficulty": 3,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Kahneman divide la mente en dos sistemas: uno rápido e intuitivo, y otro lento y deliberado, y pasa el libro entero mostrando cómo el primero nos hace tomar decisiones sistemáticamente irracionales sin que nos demos cuenta. Es denso — el autor ganó el Nobel de Economía por esta investigación — pero cada capítulo deja un sesgo cognitivo nuevo que después empezás a ver en vos mismo por todos lados.",
+      "quotes": "> \"Nada en la vida es tan importante como creés mientras pensás en ello.\"\n> — cap. 39",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Psicología",
+        "Divulgación científica"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Pensar rápido, pensar despacio",
+      "author": "Daniel Kahneman",
+      "year": 2011,
+      "tags": [
+        "Psicología",
+        "Divulgación científica"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "a65drkk07hyg",
+      "cover": "https://covers.openlibrary.org/b/isbn/9788425432026-L.jpg",
+      "language": "es",
+      "start": "2026-02-03",
+      "end": "2026-02-09",
+      "pages": 152,
+      "pagesRead": 152,
+      "rating": 5,
+      "difficulty": 2,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Frankl relata su experiencia como prisionero en campos de concentración nazis y, a partir de ahí, desarrolla la logoterapia: la idea de que el ser humano puede soportar casi cualquier sufrimiento si le encuentra un sentido. La primera mitad es testimonio crudo; la segunda es la teoría psicológica que salió de ese testimonio. Se lee en una tarde y se piensa durante meses.",
+      "quotes": "> \"Quien tiene un porqué para vivir puede soportar casi cualquier cómo.\"\n> — parte 2",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Psicología",
+        "Memorias"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "El hombre en busca de sentido",
+      "author": "Viktor Frankl",
+      "year": 1946,
+      "tags": [
+        "Psicología",
+        "Memorias"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "3hwfw8lt8hxw",
+      "cover": "https://covers.openlibrary.org/b/isbn/9788420658710-L.jpg",
+      "language": "es",
+      "start": "2026-02-20",
+      "end": "2026-03-18",
+      "pages": 396,
+      "pagesRead": 396,
+      "rating": 4,
+      "difficulty": 5,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Zaratustra baja de la montaña para anunciar la muerte de Dios, el eterno retorno y al superhombre, todo en un lenguaje que imita deliberadamente el estilo profético-bíblico. Es más un poema filosófico que un tratado, así que se disfruta más leyéndolo por su ritmo e imágenes que tratando de extraerle un sistema cerrado de ideas.",
+      "quotes": "> \"El hombre es una cuerda tendida entre el animal y el superhombre.\"\n> — prólogo",
+      "characters": "**Zaratustra** — Profeta solitario que baja de la montaña tras diez años de retiro para compartir su doctrina con la humanidad, y se topa con el rechazo y la incomprensión de casi todos.",
+      "notes": "",
+      "themes": [
+        "Filosofía",
+        "Clásicos"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Así habló Zaratustra",
+      "author": "Friedrich Nietzsche",
+      "year": 1883,
+      "tags": [
+        "Filosofía",
+        "Clásicos"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "e7klh4hy59xj",
+      "cover": "https://covers.openlibrary.org/b/isbn/9788478442414-L.jpg",
+      "language": "es",
+      "start": "2026-03-25",
+      "end": "",
+      "pages": 652,
+      "pagesRead": 240,
+      "rating": 0,
+      "difficulty": 3,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Una adolescente noruega empieza a recibir cartas anónimas con preguntas filosóficas ('¿Quién eres tú?', '¿De dónde viene el mundo?') que la llevan, sin saberlo, a un recorrido completo por la historia de la filosofía occidental disfrazado de novela. Buena introducción si nunca leíste filosofía formal, aunque la trama narrativa es claramente una excusa para el manual.",
+      "quotes": "> \"¿Quién eres tú? ¿De dónde viene el mundo?\"\n> — cap. 1",
+      "characters": "**Sofía Amundsen** — Adolescente de catorce años que empieza a recibir un curso de filosofía por correo de un remitente misterioso.\n**Alberto Knox** — El filósofo anónimo que le enseña a Sofía toda la historia del pensamiento occidental, carta tras carta.",
+      "notes": "",
+      "themes": [
+        "Filosofía",
+        "Novela"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "El mundo de Sofía",
+      "author": "Jostein Gaarder",
+      "year": 1991,
+      "tags": [
+        "Filosofía",
+        "Novela"
+      ],
+      "status": "abandoned"
+    },
+    {
+      "id": "uaop2jqh7512",
+      "cover": "https://covers.openlibrary.org/b/isbn/9781119473862-L.jpg",
+      "language": "es",
+      "start": "2026-04-02",
+      "end": "2026-04-16",
+      "pages": 304,
+      "pagesRead": 304,
+      "rating": 4,
+      "difficulty": 3,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Ammous arranca con una historia del dinero — de la sal y el ganado al oro y las monedas fiat — para después argumentar por qué Bitcoin funciona como la próxima evolución natural del dinero duro. La primera mitad (historia monetaria) convence más que la segunda (predicciones), pero como introducción al 'por qué' detrás de Bitcoin es la referencia más citada del género.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Bitcoin",
+        "Economía"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "El patrón Bitcoin",
+      "author": "Saifedean Ammous",
+      "year": 2018,
+      "tags": [
+        "Bitcoin",
+        "Economía"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "cjp8vd9ufeup",
+      "cover": "https://covers.openlibrary.org/b/isbn/9781491954386-L.jpg",
+      "language": "es",
+      "start": "2026-07-10",
+      "end": "",
+      "pages": 356,
+      "pagesRead": 140,
+      "rating": 0,
+      "difficulty": 4,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "La referencia técnica para entender Bitcoin por dentro: claves criptográficas, la blockchain, minería, scripts de transacción, todo explicado a nivel de implementación. No es para leer de una sentada — es más manual de referencia que ensayo — pero es el libro al que volver cuando 'entender Bitcoin conceptualmente' ya no alcanza.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Bitcoin",
+        "Tecnología"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Dominando Bitcoin",
+      "author": "Andreas M. Antonopoulos",
+      "year": 2014,
+      "tags": [
+        "Bitcoin",
+        "Tecnología"
+      ],
+      "status": "reading"
+    },
+    {
+      "id": "gtp4jhvl4mlx",
+      "cover": "https://covers.openlibrary.org/b/isbn/9781603580557-L.jpg",
+      "language": "es",
+      "start": "2026-04-20",
+      "end": "2026-04-30",
+      "pages": 241,
+      "pagesRead": 241,
+      "rating": 5,
+      "difficulty": 3,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Meadows enseña a ver el mundo como redes de stocks, flujos y bucles de retroalimentación en vez de cadenas simples de causa-efecto — y por qué casi todas nuestras intervenciones en sistemas complejos (empresas, ecosistemas, economías) fallan porque ignoramos esa estructura. Corto, denso y de esos libros que cambian cómo mirás todo lo demás después de leerlo.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Sistemas",
+        "Pensamiento crítico"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Pensar en sistemas",
+      "author": "Donella H. Meadows",
+      "year": 2008,
+      "tags": [
+        "Sistemas",
+        "Pensamiento crítico"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "2g64ktfnx7oj",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780198739838-L.jpg",
+      "language": "es",
+      "start": "2026-05-05",
+      "end": "2026-05-27",
+      "pages": 432,
+      "pagesRead": 432,
+      "rating": 4,
+      "difficulty": 4,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Bostrom examina, con rigor casi excesivo, qué pasa el día que construyamos una inteligencia artificial que nos supere en todo — cómo podría pasar, qué tan rápido, y por qué el problema de alinear sus objetivos con los nuestros es mucho más difícil de lo que parece. Denso y a veces repetitivo, pero fue el libro que puso el 'problema de alineación' en el mapa mucho antes de que fuera tema de todos los días.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "IA",
+        "Filosofía"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Superinteligencia",
+      "author": "Nick Bostrom",
+      "year": 2014,
+      "tags": [
+        "IA",
+        "Filosofía"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "1nep86gbg240",
+      "cover": "https://covers.openlibrary.org/b/isbn/9781101946596-L.jpg",
+      "language": "es",
+      "start": "",
+      "end": "",
+      "pages": 384,
+      "pagesRead": 0,
+      "rating": 0,
+      "difficulty": 3,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Tegmark plantea la IA avanzada como el próximo gran salto evolutivo — de la vida 1.0 (biológica, no puede rediseñar ni su hardware ni su software) a la vida 3.0 (puede rediseñar ambos) — y recorre distintos escenarios de cómo podría verse un futuro con inteligencia artificial general, desde utópicos hasta catastróficos.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "IA",
+        "Futurismo"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Vida 3.0",
+      "author": "Max Tegmark",
+      "year": 2017,
+      "tags": [
+        "IA",
+        "Futurismo"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "yjfu5ti6smou",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg",
+      "language": "es",
+      "start": "2026-07-18",
+      "end": "",
+      "pages": 320,
+      "pagesRead": 0,
+      "rating": 0,
+      "difficulty": 2,
+      "recommended": false,
+      "publisher": "Audiolibro",
+      "isbn": "",
+      "format": "audio",
+      "summary": "Clear argumenta que el cambio real no viene de metas grandes sino de sistemas pequeños: mejorar un 1% todos los días, apoyado en identidad ('soy alguien que lee', no 'quiero leer más') en vez de fuerza de voluntad. Práctico hasta el hueso, con marcos concretos (la regla de los dos minutos, el apilamiento de hábitos) que se pueden aplicar el mismo día que lo terminás.",
+      "quotes": "> \"No te elevás al nivel de tus metas, caés al nivel de tus sistemas.\"\n> — cap. 1",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Desarrollo personal",
+        "Productividad"
+      ],
+      "duration": 469,
+      "minutesListened": 210,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Hábitos atómicos",
+      "author": "James Clear",
+      "year": 2018,
+      "tags": [
+        "Desarrollo personal",
+        "Productividad"
+      ],
+      "status": "reading"
+    },
+    {
+      "id": "wtezvstxiqpr",
+      "cover": "https://covers.openlibrary.org/b/olid/OL27264400M-L.jpg",
+      "language": "es",
+      "start": "2024-02-03",
+      "end": "2024-02-19",
+      "pages": 320,
+      "pagesRead": 320,
+      "rating": 4,
+      "difficulty": 4,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Case, un hacker venido a menos, es reclutado para un golpe imposible contra una IA encerrada en una corporación. Gibson inventó el vocabulario entero del cyberpunk acá — 'ciberespacio' es palabra suya — y aunque la prosa es densa y a veces confusa a propósito, el libro predijo internet, la realidad virtual y buena parte de la estética digital de las décadas siguientes.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Ciencia ficción",
+        "Cyberpunk"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Neuromante",
+      "author": "William Gibson",
+      "year": 1984,
+      "tags": [
+        "Ciencia ficción",
+        "Cyberpunk"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "56nitqn8j00z",
+      "cover": "https://covers.openlibrary.org/b/olid/OL9117953M-L.jpg",
+      "language": "es",
+      "start": "2024-04-10",
+      "end": "2024-04-24",
+      "pages": 326,
+      "pagesRead": 326,
+      "rating": 5,
+      "difficulty": 2,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Winston Smith trabaja reescribiendo la historia para un régimen que vigila cada pensamiento, hasta que se anima a pensar por su cuenta. Más de setenta años después el vocabulario del libro — Gran Hermano, doblepensar, la Policía del Pensamiento — sigue siendo el punto de referencia obligado para hablar de vigilancia y control totalitario.",
+      "quotes": "> \"La guerra es paz. La libertad es esclavitud. La ignorancia es fuerza.\"\n> — parte 1",
+      "characters": "**Winston Smith** — Empleado del Ministerio de la Verdad que empieza a cuestionar en secreto al Partido.\n**O'Brien** — Miembro del Partido Interior cuya verdadera lealtad se revela demasiado tarde.\n**Big Brother** — El líder omnipresente del Partido, cuya imagen vigila cada rincón de Oceanía.",
+      "notes": "",
+      "themes": [
+        "Ciencia ficción",
+        "Distopía"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "1984",
+      "author": "George Orwell",
+      "year": 1949,
+      "tags": [
+        "Ciencia ficción",
+        "Distopía"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "vt278ij21be8",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg",
+      "language": "es",
+      "start": "2024-06-05",
+      "end": "2024-06-20",
+      "pages": 310,
+      "pagesRead": 310,
+      "rating": 5,
+      "difficulty": 2,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Bilbo Bolsón, un hobbit sin ninguna ambición de aventura, termina reclutado por trece enanos y un mago para recuperar un tesoro custodiado por el dragón Smaug. Más liviano y episódico que 'El Señor de los Anillos', funciona perfecto como puerta de entrada a la Tierra Media — y como recordatorio de que el propio Tolkien lo pensó primero como cuento para sus hijos.",
+      "quotes": "> \"En un agujero en el suelo vivía un hobbit.\"\n> — cap. 1",
+      "characters": "**Bilbo Bolsón** — Hobbit hogareño que se descubre capaz de mucho más de lo que imaginaba.\n**Gandalf** — El mago que arrastra a Bilbo fuera de su zona de confort.\n**Thorin Escudo de Roble** — Enano heredero de un reino perdido, decidido a recuperarlo cueste lo que cueste.",
+      "notes": "",
+      "themes": [
+        "Fantasía",
+        "Clásicos"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "El Hobbit",
+      "author": "J.R.R. Tolkien",
+      "year": 1937,
+      "tags": [
+        "Fantasía",
+        "Clásicos"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "j8c7gzcm58r0",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780553293357-L.jpg",
+      "language": "es",
+      "start": "2024-08-01",
+      "end": "2024-08-14",
+      "pages": 296,
+      "pagesRead": 296,
+      "rating": 4,
+      "difficulty": 3,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Hari Seldon predice matemáticamente la caída del Imperio Galáctico y funda dos 'Fundaciones' para acortar los siglos de barbarie que vendrían después. Asimov construye el libro como una serie de crisis políticas resueltas con ingenio en vez de con batallas espaciales — ciencia ficción de ideas, no de efectos especiales.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Ciencia ficción",
+        "Clásicos"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Fundación",
+      "author": "Isaac Asimov",
+      "year": 1951,
+      "tags": [
+        "Ciencia ficción",
+        "Clásicos"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "y7kzf7zlrs9g",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780553208849-L.jpg",
+      "language": "es",
+      "start": "2024-10-02",
+      "end": "2024-10-09",
+      "pages": 152,
+      "pagesRead": 152,
+      "rating": 4,
+      "difficulty": 3,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Un joven en la India de Buda abandona la vida ascética para probar el placer, la riqueza y el amor, y solo después de agotarlos encuentra algo parecido a la paz junto a un río. Es más parábola que novela realista — cada etapa de la vida de Siddhartha funciona como una estación en un camino espiritual, no como trama en el sentido convencional.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Filosofía",
+        "Novela"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Siddhartha",
+      "author": "Hermann Hesse",
+      "year": 1922,
+      "tags": [
+        "Filosofía",
+        "Novela"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "mfsgh6y3rp6i",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780679734505-L.jpg",
+      "language": "es",
+      "start": "2024-10-20",
+      "end": "2024-11-22",
+      "pages": 688,
+      "pagesRead": 688,
+      "rating": 5,
+      "difficulty": 5,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Raskólnikov, un ex estudiante empobrecido en San Petersburgo, asesina a una prestamista convencido de que algunos hombres están por encima de la moral común — y pasa el resto del libro desmoronándose bajo el peso de la culpa. Menos novela policial que retrato clínico de una conciencia colapsando, capítulo a capítulo.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Clásicos",
+        "Novela"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Crimen y castigo",
+      "author": "Fiódor Dostoyevski",
+      "year": 1866,
+      "tags": [
+        "Clásicos",
+        "Novela"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "5ruzx8hr77r8",
+      "cover": "https://covers.openlibrary.org/b/isbn/9781451673319-L.jpg",
+      "language": "es",
+      "start": "2025-01-06",
+      "end": "2025-01-13",
+      "pages": 186,
+      "pagesRead": 186,
+      "rating": 4,
+      "difficulty": 2,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Guy Montag es bombero en un futuro donde los bomberos no apagan incendios: los provocan, quemando los libros que la sociedad decidió que era mejor no leer. Bradbury escribió esto pensando más en la televisión y la censura social que en gobiernos autoritarios — la distopía nace del consenso, no de la fuerza.",
+      "quotes": "> \"Era un placer especial ver arder las cosas.\"\n> — parte 1",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Ciencia ficción",
+        "Distopía"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Fahrenheit 451",
+      "author": "Ray Bradbury",
+      "year": 1953,
+      "tags": [
+        "Ciencia ficción",
+        "Distopía"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "r2nfl1tpmp12",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780553213690-L.jpg",
+      "language": "es",
+      "start": "2025-03-02",
+      "end": "2025-03-05",
+      "pages": 96,
+      "pagesRead": 96,
+      "rating": 4,
+      "difficulty": 2,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Gregorio Samsa se despierta convertido en un insecto gigante y el resto de la novela corta se ocupa, con una frialdad casi administrativa, de cómo su familia reorganiza la vida cotidiana alrededor de ese hecho. Corta, incómoda y perfecta como primera incursión en Kafka antes de meterse con 'El proceso'.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Clásicos",
+        "Novela"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "La metamorfosis",
+      "author": "Franz Kafka",
+      "year": 1915,
+      "tags": [
+        "Clásicos",
+        "Novela"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "3v3zptsa8ijz",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780679720201-L.jpg",
+      "language": "es",
+      "start": "2025-04-14",
+      "end": "2025-04-18",
+      "pages": 123,
+      "pagesRead": 123,
+      "rating": 5,
+      "difficulty": 2,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Meursault entierra a su madre sin llorar, mata a un hombre casi sin motivo, y enfrenta el juicio con la misma indiferencia emocional con la que hizo todo lo demás. Camus usa la voz plana de Meursault para poner el absurdo existencial en primer plano — la novela entera es un ejercicio de no fingir sentir lo que la sociedad espera.",
+      "quotes": "> \"Hoy murió mamá. O quizá ayer, no lo sé.\"\n> — parte 1",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Filosofía",
+        "Novela"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "El extranjero",
+      "author": "Albert Camus",
+      "year": 1942,
+      "tags": [
+        "Filosofía",
+        "Novela"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "ry4o7qpz0uzp",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780441013593-L.jpg",
+      "language": "es",
+      "start": "2025-06-01",
+      "end": "2025-07-03",
+      "pages": 688,
+      "pagesRead": 688,
+      "rating": 5,
+      "difficulty": 4,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Paul Atreides ve a su familia caer en una trampa política por el control de Arrakis, el único planeta del universo que produce la especia que hace posible los viajes interestelares, y termina mezclado con los Fremen del desierto y una profecía que quizás él mismo fabricó. Ecología, religión, geopolítica y mesianismo en un solo libro — la razón por la que 'la ciencia ficción seria' se toma tan en serio a sí misma desde los 60.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Ciencia ficción",
+        "Clásicos"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "year": 1965,
+      "tags": [
+        "Ciencia ficción",
+        "Clásicos"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "kamyp9fjbttp",
+      "cover": "https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg",
+      "language": "es",
+      "start": "2026-02-02",
+      "end": "2026-02-12",
+      "pages": 296,
+      "pagesRead": 296,
+      "rating": 4,
+      "difficulty": 2,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Newport separa el trabajo en dos categorías — 'profundo' (que exige concentración total y produce valor real) y 'superficial' (correos, reuniones, notificaciones) — y argumenta que la capacidad de hacer el primero es cada vez más rara y cada vez más valiosa. Mitad manifiesto, mitad manual práctico de cómo proteger bloques de atención en un entorno diseñado para fragmentarla.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Desarrollo personal",
+        "Productividad"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Céntrate",
+      "author": "Cal Newport",
+      "year": 2016,
+      "tags": [
+        "Desarrollo personal",
+        "Productividad"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "efxwn7yj4izj",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg",
+      "language": "es",
+      "start": "2026-07-20",
+      "end": "",
+      "pages": 496,
+      "pagesRead": 180,
+      "rating": 0,
+      "difficulty": 3,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Harari recorre toda la historia de nuestra especie en tres revoluciones — la cognitiva, la agrícola y la científica — con la tesis central de que Homo sapiens dominó el planeta gracias a su capacidad única de creer colectivamente en ficciones compartidas: dinero, naciones, religiones, empresas. Ambicioso a un nivel casi incómodo, y de ahí también sus críticos.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Historia",
+        "Divulgación científica"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "Sapiens: De animales a dioses",
+      "author": "Yuval Noah Harari",
+      "year": 2011,
+      "tags": [
+        "Historia",
+        "Divulgación científica"
+      ],
+      "status": "reading"
+    },
+    {
+      "id": "18lvg902nnpd",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780307887894-L.jpg",
+      "language": "es",
+      "start": "2026-04-01",
+      "end": "2026-04-13",
+      "pages": 305,
+      "pagesRead": 305,
+      "rating": 4,
+      "difficulty": 2,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Ries propone tratar una startup como un experimento continuo: lanzar un producto mínimo viable, medir cómo reacciona la gente de verdad, y decidir con datos si seguir por el mismo camino o pivotar. La idea de 'construir-medir-aprender' se volvió estándar en el mundo tech, para bien y para mal — hoy es tan citada que a veces se olvida de dónde salió.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Negocios",
+        "Emprendimiento"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "El método Lean Startup",
+      "author": "Eric Ries",
+      "year": 2011,
+      "tags": [
+        "Negocios",
+        "Emprendimiento"
+      ],
+      "status": "finished"
+    },
+    {
+      "id": "a9h5rbiqmsqu",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780201616224-L.jpg",
+      "language": "es",
+      "start": "2026-03-08",
+      "end": "",
+      "pages": 352,
+      "pagesRead": 90,
+      "rating": 0,
+      "difficulty": 3,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Una colección de principios prácticos de ingeniería de software — DRY (no te repitas), acoplamiento débil, automatizar todo lo automatizable — presentados como consejos de mentor más que como teoría formal. Envejeció sorprendentemente bien para un libro de 1999, aunque algunos ejemplos técnicos ya quedaron viejos.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Sistemas",
+        "Programación"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "El programador pragmático",
+      "author": "David Thomas y Andrew Hunt",
+      "year": 1999,
+      "tags": [
+        "Sistemas",
+        "Programación"
+      ],
+      "status": "abandoned"
+    },
+    {
+      "id": "3m17jbdi01kl",
+      "cover": "https://covers.openlibrary.org/b/isbn/9780857197689-L.jpg",
+      "language": "es",
+      "start": "",
+      "end": "",
+      "pages": 242,
+      "pagesRead": 0,
+      "rating": 0,
+      "difficulty": 2,
+      "recommended": false,
+      "publisher": "",
+      "isbn": "",
+      "format": "physical",
+      "summary": "Housel argumenta que manejar bien el dinero tiene menos que ver con matemáticas financieras y más con comportamiento: paciencia, humildad frente al riesgo, y entender que cada persona juega un juego distinto con el dinero según su propia historia. Veintiún capítulos cortos, cada uno una idea independiente.",
+      "quotes": "",
+      "characters": "",
+      "notes": "",
+      "themes": [
+        "Desarrollo personal",
+        "Finanzas"
+      ],
+      "duration": 0,
+      "minutesListened": 0,
+      "createdAt": "2026-05-17",
+      "updatedAt": "2026-07-15",
+      "title": "La psicología del dinero",
+      "author": "Morgan Housel",
+      "year": 2020,
+      "tags": [
+        "Desarrollo personal",
+        "Finanzas"
+      ],
+      "status": "planned"
+    }
+  ],
   "settings": {
     "ownerName": "Lector",
     "yearlyGoal": 12,
@@ -7,7 +883,18 @@
     "accentColor": "#8B5CF6",
     "avatarUrl": ""
   },
-  "monthlyPages": [],
+  "monthlyPages": [
+    {
+      "yearMonth": "2026-07",
+      "pages": 520,
+      "notes": ""
+    },
+    {
+      "yearMonth": "2026-06",
+      "pages": 610,
+      "notes": ""
+    }
+  ],
   "customLevels": [
     {
       "level": 1,
@@ -64,7 +951,41 @@
       "icon": "🔮"
     }
   ],
-  "documents": [],
+  "documents": [
+    {
+      "id": "wm31yihair4c",
+      "pinned": true,
+      "tags": [
+        "bienvenida"
+      ],
+      "title": "Bienvenido a ReadingHub",
+      "content": "# Bienvenido a ReadingHub\n\nEsto es una **biblioteca de ejemplo** para que veas la app en uso antes de cargar tus propios libros.\n\n## Qué mirar primero\n\n- El **Dashboard** — tu núcleo, la racha, y lo que estás leyendo ahora\n- **Biblioteca** — todas las vistas (grilla, lista, estante)\n- Entrá a **Dominando Bitcoin** o **Hábitos atómicos** y probá el botón de *Registrar sesión de hoy*\n- **Logros** — varios ya están desbloqueados con esta biblioteca de ejemplo\n\n## Cuando quieras arrancar de cero\n\nAndá a **Ajustes → Datos** y borrá la biblioteca de ejemplo. Vas a arrancar con una base completamente vacía, lista para tus libros reales.\n\n¡Que disfrutes la lectura!",
+      "createdAt": "2026-07-14",
+      "updatedAt": "2026-07-14"
+    },
+    {
+      "id": "owgzrixa11dp",
+      "pinned": false,
+      "tags": [
+        "tips"
+      ],
+      "title": "Cómo sacarle el jugo a ReadingHub",
+      "content": "# Tips rápidos\n\n- **Ctrl+K** (o Cmd+K en Mac) abre la búsqueda global — libros, citas, notas y documentos, todo desde ahí\n- Guardá una **cita** apenas la leas — la ficha del libro siempre muestra la última guardada, no hace falta ir a buscarla\n- Los **desafíos** en el Dashboard se recalculan solos — no hay que marcarlos a mano\n- El **modo claro/oscuro** está en el ícono de sol/luna del encabezado\n- Podés **duplicar un libro** para relecturas y comparar cómo cambió tu opinión la segunda vez",
+      "createdAt": "2026-07-14",
+      "updatedAt": "2026-07-14"
+    },
+    {
+      "id": "g8sbi4q2y9v8",
+      "pinned": false,
+      "tags": [
+        "proyecto"
+      ],
+      "title": "Sobre este proyecto",
+      "content": "# Sobre ReadingHub\n\nReadingHub es un proyecto personal, 100% local — sin cuentas, sin nube, sin publicidad. Tus datos viven en un archivo JSON en tu propia máquina, siempre.\n\nLa identidad visual — paleta violeta/cian/ámbar, el orbe que reacciona a tu racha, tipografía propia — busca alejarse del look genérico de dashboard que tienen la mayoría de las apps armadas rápido.\n\nEs software libre (MIT). Si te sirve, es todo tuyo — modificalo como quieras.",
+      "createdAt": "2026-07-13",
+      "updatedAt": "2026-07-15"
+    }
+  ],
   "customAchievements": [],
   "achievementOverrides": [],
   "challengeOverrides": [],
@@ -72,5 +993,151 @@
   "categoryOverrides": {},
   "collections": [],
   "notifications": [],
-  "sessions": []
+  "sessions": [
+    {
+      "id": "1t2tala753lc",
+      "bookId": "oh9sdbdw2pcn",
+      "date": "2026-07-16",
+      "pages": 22
+    },
+    {
+      "id": "58drc11ertj5",
+      "bookId": "oh9sdbdw2pcn",
+      "date": "2026-07-15",
+      "pages": 18
+    },
+    {
+      "id": "pht0hl9xpsei",
+      "bookId": "oh9sdbdw2pcn",
+      "date": "2026-07-14",
+      "pages": 25
+    },
+    {
+      "id": "mvihcwi64ciy",
+      "bookId": "oh9sdbdw2pcn",
+      "date": "2026-07-12",
+      "pages": 15
+    },
+    {
+      "id": "he7ur23gdppq",
+      "bookId": "oh9sdbdw2pcn",
+      "date": "2026-07-11",
+      "pages": 20
+    },
+    {
+      "id": "0y9dom5igqpk",
+      "bookId": "oh9sdbdw2pcn",
+      "date": "2026-07-09",
+      "pages": 30
+    },
+    {
+      "id": "i7p5tb94874f",
+      "bookId": "oh9sdbdw2pcn",
+      "date": "2026-07-07",
+      "pages": 20
+    },
+    {
+      "id": "rhocn9j2qp89",
+      "bookId": "oh9sdbdw2pcn",
+      "date": "2026-07-04",
+      "pages": 30
+    },
+    {
+      "id": "uzfk8ut0cvs4",
+      "bookId": "oh9sdbdw2pcn",
+      "date": "2026-07-02",
+      "pages": 26
+    },
+    {
+      "id": "f8cgvyie6ivw",
+      "bookId": "9t84azytjxep",
+      "date": "2026-07-15",
+      "pages": 45
+    },
+    {
+      "id": "pvs7hzioykl1",
+      "bookId": "9t84azytjxep",
+      "date": "2026-07-13",
+      "pages": 50
+    },
+    {
+      "id": "cq99chj755nf",
+      "bookId": "9t84azytjxep",
+      "date": "2026-07-10",
+      "pages": 40
+    },
+    {
+      "id": "4zw9xa3kx7ee",
+      "bookId": "9t84azytjxep",
+      "date": "2026-07-08",
+      "pages": 60
+    },
+    {
+      "id": "dtjvzhwjr64d",
+      "bookId": "9t84azytjxep",
+      "date": "2026-07-06",
+      "pages": 55
+    },
+    {
+      "id": "pja1wj0tpac5",
+      "bookId": "9t84azytjxep",
+      "date": "2026-07-03",
+      "pages": 60
+    },
+    {
+      "id": "6t4ufel6246h",
+      "bookId": "wnnhj7xvg0fn",
+      "date": "2026-06-30",
+      "pages": 40
+    },
+    {
+      "id": "id25owf75935",
+      "bookId": "wnnhj7xvg0fn",
+      "date": "2026-06-28",
+      "pages": 60
+    },
+    {
+      "id": "a0l7253j2d54",
+      "bookId": "wnnhj7xvg0fn",
+      "date": "2026-06-26",
+      "pages": 50
+    },
+    {
+      "id": "i3qk2iagl58k",
+      "bookId": "wnnhj7xvg0fn",
+      "date": "2026-06-24",
+      "pages": 45
+    },
+    {
+      "id": "xo9t7e8g8jdp",
+      "bookId": "wnnhj7xvg0fn",
+      "date": "2026-06-22",
+      "pages": 40
+    },
+    {
+      "id": "0lvsnujza7tz",
+      "bookId": "wnnhj7xvg0fn",
+      "date": "2026-06-20",
+      "pages": 45
+    },
+    {
+      "id": "0yncxll4zklo",
+      "bookId": "9xuy41ibljh7",
+      "date": "2026-07-03",
+      "pages": 30
+    },
+    {
+      "id": "okep7y6wktak",
+      "bookId": "9xuy41ibljh7",
+      "date": "2026-07-02",
+      "pages": 40
+    },
+    {
+      "id": "puxqphr62gds",
+      "bookId": "9xuy41ibljh7",
+      "date": "2026-07-01",
+      "pages": 42
+    }
+  ],
+  "authorAvatars": {}
 }

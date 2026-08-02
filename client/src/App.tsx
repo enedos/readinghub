@@ -29,6 +29,7 @@ const PAGE_TITLES: Record<string, string> = {
   '/journey':      'Mi Recorrido',
   '/collections':  'Colecciones',
   '/sessions':     'Sesiones',
+  '/authors':      'Autores',
 };
 
 function PageTitle() {
@@ -56,6 +57,7 @@ function PageLoader() {
 
 const HomePage         = lazy(() => import('./pages/Home'));
 const AuthorPage       = lazy(() => import('./pages/Author'));
+const AuthorsPage      = lazy(() => import('./pages/Authors'));
 const SessionsPage     = lazy(() => import('./pages/Sessions'));
 const LibraryPage      = lazy(() => import('./pages/Library'));
 const DashboardPage    = lazy(() => import('./pages/Dashboard'));
@@ -230,7 +232,7 @@ function Footer() {
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       flexWrap: 'wrap', gap: 6, flexShrink: 0,
     }}>
-      <span style={{ fontSize: 11, color: C.ink4, fontFamily: C.fontMono }}>ReadingHub · v1.0.0</span>
+      <span style={{ fontSize: 11, color: C.ink4, fontFamily: C.fontMono }}>ReadingHub · v1.0.1</span>
       <span style={{ fontSize: 11, color: C.ink4, fontStyle: 'italic' }}>{FOOTER_QUOTES[_footerIdx]}</span>
     </footer>
   );
@@ -399,6 +401,7 @@ function AppShell() {
               <Route path="/journey"      element={<JourneyPage />} />
               <Route path="/collections"  element={<CollectionsPage />} />
               <Route path="/sessions"       element={<SessionsPage />} />
+              <Route path="/authors" element={<AuthorsPage />} />
               <Route path="/author/:authorSlug" element={<AuthorPage />} />
               <Route path="*"             element={<NotFoundPage />} />
             </Routes>

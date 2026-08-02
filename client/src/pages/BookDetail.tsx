@@ -574,7 +574,7 @@ export default function BookDetailPage() {
       </button>
 
       {/* ── Identity row — cover with a soft glow anchored to it ── */}
-      <div style={{ display:'flex', gap:28, alignItems:'center', marginBottom:20, flexWrap:'wrap', position:'relative' }}>
+      <div className="rx-flex-stack-mobile-left" style={{ display:'flex', gap:28, alignItems:'center', marginBottom:20, flexWrap:'wrap', position:'relative' }}>
         <div style={{ position:'relative', flexShrink:0 }}>
           <div style={{ position:'absolute', inset:'-24px -24px -8px -24px', borderRadius:22, filter:'blur(28px)', opacity:0.5,
                         background:`radial-gradient(circle, ${genreColor}, transparent 70%)`, zIndex:0 }}/>

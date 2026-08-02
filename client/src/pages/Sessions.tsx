@@ -147,7 +147,7 @@ export default function SessionsPage() {
       </div>
 
       {/* Summary stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 10, marginBottom: 16 }}>
+      <div className="rx-sessions-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 10, marginBottom: 16 }}>
         {[
           { label: 'Sesiones', value: sessions.length, color: C.accent },
           { label: 'Páginas totales', value: totalPages.toLocaleString('es'), color: C.success },

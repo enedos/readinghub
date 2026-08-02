@@ -197,9 +197,6 @@ export function CommandPalette() {
         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
       </svg>
       <span>Buscar</span>
-      <kbd style={{ fontSize: 10, padding: '1px 5px', borderRadius: 4, background: C.bgSurface, border: `1px solid ${C.border}`, color: C.ink4, fontFamily: C.fontMono }}>
-        Ctrl+K
-      </kbd>
     </button>
   );
 

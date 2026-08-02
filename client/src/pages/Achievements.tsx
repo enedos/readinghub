@@ -42,7 +42,9 @@ function PathsView({ achievements }: { achievements: any[] }) {
                 <div style={{ marginTop:6 }}><ProgressBar value={Math.round((doneCount/pathAchs.length)*100)} color={path.color} height={4}/></div>
               </div>
             </div>
-            <div style={{ display:'flex', alignItems:'center', gap:0, overflowX:'auto', paddingBottom:8 }}>
+            <div style={{ display:'flex', alignItems:'center', gap:0, overflowX:'auto', paddingBottom:8,
+                          WebkitMaskImage:'linear-gradient(90deg, black calc(100% - 24px), transparent)',
+                          maskImage:'linear-gradient(90deg, black calc(100% - 24px), transparent)' }}>
               {pathAchs.map((ach, i) => {
                 const isNext = ach.id === nextAch?.id;
                 const isDone = ach.unlocked;
@@ -211,7 +213,7 @@ function RarityView({ achievements, rarity, onBack }: { achievements: any[]; rar
           <ProgressBar value={filtered.length > 0 ? Math.round((done.length/filtered.length)*100) : 0} color={cfg.color} height={6}/>
         </div>
       </div>
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))', gap:12 }}>
+      <div className="rx-achievement-cards" style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))', gap:12 }}>
         {filtered.map(a => {
           const catColor = CATEGORY_COLOR[a.category] || cfg.color;
           return (
@@ -325,7 +327,7 @@ function CategoriesView({ achievements, customAchievements, categoryOverrides }:
               <span style={{ color:C.ink4, fontSize:12, transition:'transform 0.2s', transform:isCollapsed?'none':'rotate(180deg)', marginLeft:4 }}>▾</span>
             </button>
             {!isCollapsed && (
-              <div style={{ padding:'12px 16px 16px', display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))', gap:10 }}>
+              <div className="rx-achievement-cards" style={{ padding:'12px 16px 16px', display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))', gap:10 }}>
                 {catAchs.map(a => {
                   const cfg = RARITY_CONFIG[a.rarity];
                   return (
@@ -419,7 +421,7 @@ export default function AchievementsPage() {
       </div>
 
       {/* Rarity summary — clickable */}
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(5,1fr)', gap:10, marginBottom:20 }}>
+      <div className="rx-rarity-grid" style={{ display:'grid', gridTemplateColumns:'repeat(5,1fr)', gap:10, marginBottom:20 }}>
         {RARITY_ORDER.map(r => {
           const cfg  = RARITY_CONFIG[r];
           const all  = allAchievements.filter(a => a.rarity === r);

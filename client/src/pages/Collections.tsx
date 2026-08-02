@@ -413,7 +413,7 @@ export default function CollectionsPage() {
       )}
 
       {/* Collections grid */}
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(380px,1fr))', gap:16 }}>
+      <div className="rx-collections-grid" style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(380px,1fr))', gap:16 }}>
         {filtered.map(col => (
           <CollectionCard key={col.id} col={col} onEdit={() => setEditing(col)}/>
         ))}

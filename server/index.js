@@ -368,7 +368,7 @@ app.get('*', (req,res) => {
 // ── Start ─────────────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log('\n  ╔══════════════════════════════════════════╗');
-  console.log('  ║        READINGHUB  v1.0.1                ║');
+  console.log('  ║        READINGHUB  v1.0.2                ║');
   console.log('  ╚══════════════════════════════════════════╝');
   console.log(`\n  → http://localhost:${PORT}`);
   console.log(`  → Datos: ${path.join(DATA_DIR, 'readinghub.json')}`);

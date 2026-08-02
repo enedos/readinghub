@@ -135,7 +135,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Hero — el núcleo, XP y racha */}
-      <div style={{
+      <div className="rx-stack-mobile" style={{
         display:'grid', gridTemplateColumns:'auto 1fr', gap:28,
         alignItems:'center', padding:'26px 30px', marginBottom:14,
         background:'linear-gradient(135deg,rgba(139,92,246,0.10),rgba(34,211,238,0.05))',

@@ -456,7 +456,7 @@ export default function LibraryPage({ onAddBook }: { onAddBook?: () => void }) {
 
           {view === 'list' && (
             <div style={{ border:'1px solid rgba(59,130,246,0.35)', borderRadius:12, overflow:'hidden' }}>
-              <div style={{ display:'grid', gridTemplateColumns:'48px 1fr 180px 120px 90px',
+              <div className="rx-list-row-pinned" style={{ display:'grid', gridTemplateColumns:'48px 1fr 180px 120px 90px',
                             gap:16, padding:'10px 16px',
                             fontSize:10, color:C.ink3, fontWeight:600, letterSpacing:'0.1em',
                             textTransform:'uppercase', borderBottom:`1px solid ${C.border}`,
@@ -469,6 +469,7 @@ export default function LibraryPage({ onAddBook }: { onAddBook?: () => void }) {
                 const pct = book.pages > 0 ? Math.min(Math.round((book.pagesRead/book.pages)*100),100) : 0;
                 return (
                   <div key={book.id} onClick={()=>navigate(`/books/${book.id}`)}
+                    className="rx-list-row-pinned"
                     style={{ display:'grid', gridTemplateColumns:'48px 1fr 180px 120px 90px',
                               gap:16, padding:'12px 16px', cursor:'pointer', alignItems:'center',
                               borderBottom:i<pinnedReading.length-1?`1px solid ${C.border}`:'none',
@@ -576,7 +577,7 @@ export default function LibraryPage({ onAddBook }: { onAddBook?: () => void }) {
       {/* List */}
       {mainList.length > 0 && view === 'list' && (
         <div style={{ border:`1px solid ${C.border}`,borderRadius:12,overflow:'hidden' }}>
-          <div style={{ display:'grid',gridTemplateColumns:'48px 1fr 180px 120px 90px 80px',
+          <div className="rx-list-row" style={{ display:'grid',gridTemplateColumns:'48px 1fr 180px 120px 90px 80px',
                         gap:16,padding:'10px 16px',
                         fontSize:10,color:C.ink3,fontWeight:600,letterSpacing:'0.1em',
                         textTransform:'uppercase',borderBottom:`1px solid ${C.border}`,
@@ -589,6 +590,7 @@ export default function LibraryPage({ onAddBook }: { onAddBook?: () => void }) {
             const author = book.author.includes(',') ? book.author.split(',').reverse().join(' ').trim() : book.author;
             return (
               <div key={book.id} onClick={()=>navigate(`/books/${book.id}`)}
+                className="rx-list-row"
                 style={{ display:'grid',gridTemplateColumns:'48px 1fr 180px 120px 90px 80px',
                           gap:16,padding:'12px 16px',cursor:'pointer',alignItems:'center',
                           borderBottom:i<mainList.length-1?`1px solid ${C.border}`:'none',
@@ -602,6 +604,7 @@ export default function LibraryPage({ onAddBook }: { onAddBook?: () => void }) {
                   <p style={{ fontSize:13,fontWeight:500,color:C.ink1,
                                overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap' }}>{book.title}</p>
                   <p style={{ fontSize:11,color:C.ink4,marginTop:2 }}>{book.year}</p>
+                  <p className="rx-mobile-only-line" style={{ display:'none',fontSize:11,color:C.ink3,marginTop:2,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap' }}>{author}</p>
                 </div>
                 <p style={{ fontSize:12,color:C.ink2,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap' }}>{author}</p>
                 <StatusBadge status={book.status}/>

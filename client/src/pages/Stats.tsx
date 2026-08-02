@@ -382,6 +382,7 @@ export default function StatsPage() {
                   const author = book.author.includes(',')?book.author.split(',').reverse().join(' ').trim():book.author;
                   return (
                     <div key={book.id} onClick={()=>navigate(`/books/${book.id}`)}
+                      className="rx-stats-book-row"
                       style={{ display:'grid', gridTemplateColumns:'1fr 90px 70px 60px 70px',
                                 gap:12, padding:'9px 8px', borderRadius:8, cursor:'pointer',
                                 transition:'background 0.15s' }}

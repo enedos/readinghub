@@ -191,7 +191,7 @@ function TimelineView({ data, achsByYear = {} }: { data: any[]; achsByYear?: Rec
               </div>
             </div>
 
-            <div style={{ display:'grid', gridTemplateColumns:'auto 1fr auto', gap:16, alignItems:'start' }}>
+            <div className="rx-journey-triple" style={{ display:'grid', gridTemplateColumns:'auto 1fr auto', gap:16, alignItems:'start' }}>
               {/* Best book */}
               {d.best && (
                 <div onClick={() => navigate(`/books/${d.best.id}`)}
@@ -325,7 +325,7 @@ function MagazineView({ data }: { data: any[] }) {
         }}/>
 
         {/* Content overlay */}
-        <div style={{ position:'relative', zIndex:1, padding:'48px 40px', display:'grid',
+        <div className="rx-journey-row rx-journey-hero-pad" style={{ position:'relative', zIndex:1, padding:'48px 40px', display:'grid',
                        gridTemplateColumns:'1fr 1fr', gap:40, alignItems:'center', minHeight:480 }}>
           {/* Left */}
           <div>
@@ -333,7 +333,7 @@ function MagazineView({ data }: { data: any[] }) {
                          textTransform:'uppercase', marginBottom:12 }}>
               {d.isFirst ? 'El comienzo' : d.isLast ? 'En curso' : 'Capítulo'}
             </p>
-            <h2 style={{ fontFamily:C.fontSerif, fontSize:72, fontWeight:700,
+            <h2 style={{ fontFamily:C.fontSerif, fontSize:'clamp(40px, 14vw, 72px)', fontWeight:700,
                           color:C.onAccent, lineHeight:1, marginBottom:16 }}>
               {d.year}
             </h2>

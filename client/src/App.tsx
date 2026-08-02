@@ -232,7 +232,7 @@ function Footer() {
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       flexWrap: 'wrap', gap: 6, flexShrink: 0,
     }}>
-      <span style={{ fontSize: 11, color: C.ink4, fontFamily: C.fontMono }}>ReadingHub · v1.0.1</span>
+      <span style={{ fontSize: 11, color: C.ink4, fontFamily: C.fontMono }}>ReadingHub · v1.0.2</span>
       <span style={{ fontSize: 11, color: C.ink4, fontStyle: 'italic' }}>{FOOTER_QUOTES[_footerIdx]}</span>
     </footer>
   );

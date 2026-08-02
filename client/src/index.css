@@ -243,6 +243,94 @@ a { text-decoration: none; color: inherit; }
 
   /* Footer */
   .rx-footer { flex-direction: column; gap: 4px; text-align: center; }
+
+  /* ── v1.0.2 mobile fixes ─────────────────────────────────── */
+
+  /* Generic: stack any 2-column identity/hero row (cover+text,
+     orb+content, etc.) into cover-on-top instead of squeezing side by side */
+  .rx-stack-mobile {
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+    text-align: center;
+  }
+  .rx-stack-mobile > *:last-child { width: 100%; text-align: left; }
+  .rx-stack-mobile-left {
+    grid-template-columns: 1fr !important;
+  }
+  .rx-flex-stack-mobile {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+  }
+  .rx-flex-stack-mobile-left {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .rx-flex-stack-mobile-left > *:nth-child(2) { width: 100%; }
+
+  /* Library list view — collapse to cover + title/author, hide the
+     rest of the table columns that don't fit a phone width */
+  .rx-list-row {
+    grid-template-columns: 44px 1fr !important;
+  }
+  .rx-list-row > *:nth-child(n+3) { display: none !important; }
+  .rx-list-row-pinned {
+    grid-template-columns: 44px 1fr 56px !important;
+  }
+  .rx-list-row-pinned > *:nth-child(3) { display: none !important; }
+  .rx-list-row-pinned > *:nth-child(5) { display: none !important; }
+  .rx-mobile-only-line { display: block !important; }
+
+  /* Collections cards — the 380px minimum was wider than the screen */
+  .rx-collections-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stats: "Libros leídos" row (title / pages / difficulty / rating)
+     was using fixed px columns wider than the phone; drop to a
+     simpler 2-column layout and hide the rating stars column */
+  .rx-stats-book-row {
+    grid-template-columns: 1fr auto !important;
+  }
+  .rx-stats-book-row > *:nth-child(n+2):not(:last-child) { display: none !important; }
+
+  /* Sessions: 4 equal stat cards → 2x2 */
+  .rx-sessions-stats {
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+
+  /* Achievements: 5-column rarity summary → 3 + wrap, and the
+     280px-minimum achievement cards which didn't fit a phone width */
+  .rx-rarity-grid {
+    grid-template-columns: repeat(3,1fr) !important;
+    row-gap: 10px;
+  }
+  .rx-achievement-cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Journey: hero/hero-like 2up rows stack vertically */
+  .rx-journey-row {
+    grid-template-columns: 1fr !important;
+    min-height: 0 !important;
+  }
+  .rx-journey-row > *:nth-child(2) {
+    align-items: flex-start !important;
+    width: 100%;
+  }
+  .rx-journey-row > *:nth-child(2) > * {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+  .rx-journey-row > *:nth-child(2) > * > p { text-align: left !important; }
+  .rx-journey-hero-pad {
+    padding: 28px 20px !important;
+  }
+  .rx-journey-triple {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    justify-items: center;
+  }
 }
 
 @media (max-width: 480px) {

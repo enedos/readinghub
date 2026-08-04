@@ -1,10 +1,28 @@
 # ReadingHub
 
+<p align="left">
+  <img src="https://img.shields.io/badge/versión-1.0.2-8B5CF6" alt="Versión 1.0.2">
+  <img src="https://img.shields.io/badge/licencia-MIT-blue" alt="Licencia MIT">
+  <img src="https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js&logoColor=white" alt="Node 18+">
+  <img src="https://img.shields.io/badge/100%25-local-success" alt="100% local">
+</p>
+
 > Tu sistema personal de lectura. 100% local, sin cuentas, sin nube, sin publicidad.
 
-Una app de escritorio para llevar el registro completo de tu vida lectora — con gamificación de verdad, estadísticas que cuentan una historia, y una identidad visual propia en vez del look genérico de cualquier dashboard.
+Una app de escritorio para llevar el registro completo de tu vida lectora — con gamificación, estadísticas que cuentan una historia, y una identidad visual propia en vez del look genérico de cualquier dashboard.
 
 Vive en tu computadora. Corre con un comando. Tus datos nunca salen de tu máquina.
+
+### Índice
+
+- [Capturas](#capturas)
+- [Por qué existe](#por-qué-existe)
+- [Qué hace](#qué-hace)
+- [Instalación](#instalación)
+- [Tus datos](#tus-datos)
+- [Stack técnico](#stack-técnico)
+- [Roadmap](#roadmap)
+- [Licencia](#licencia)
 
 ---
 
@@ -23,6 +41,11 @@ Vive en tu computadora. Corre con un comando. Tus datos nunca salen de tu máqui
 <p align="center">
   <img src="docs/screenshots/bookdetail.jpg" width="800" alt="Detalle de libro en ReadingHub"><br>
   <em>Detalle de libro — acciones rápidas, ritmo de lectura, fecha estimada de fin</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/bookdetail.jpg" width="800" alt="Detalle de libro en ReadingHub"><br>
+  <em>Estadísticas — análisis de lectura, comparativa de años</em>
 </p>
 
 ---
@@ -59,19 +82,26 @@ Las alternativas para trackear lecturas (Goodreads, StoryGraph y similares) pide
 
 - **Node.js 18+** — [descargar en nodejs.org](https://nodejs.org)
 
-### Mac / Linux
+### 1. Descargar
 
+```bash
+git clone https://github.com/enedos/readinghub.git
+cd readinghub
+```
+
+(o descargá el ZIP desde GitHub y descomprimilo)
+
+### 2. Arrancar
+
+**Mac / Linux**
 ```bash
 chmod +x start.sh   # solo la primera vez
 ./start.sh
 ```
 
-### Windows
+**Windows** — doble click en `start.bat`
 
-Doble click en `start.bat`
-
-### Manual (cualquier sistema)
-
+**Manual (cualquier sistema)**
 ```bash
 npm install --prefix server
 node server/index.js
@@ -79,7 +109,7 @@ node server/index.js
 
 Abrí **http://localhost:3001** en tu navegador.
 
-La primera vez, la biblioteca aparece vacía — hay un botón para **cargar una biblioteca de ejemplo** (10 libros con citas, personajes y progreso) si querés ver la app en uso antes de cargar tus propios libros. Se borra con un click desde Ajustes → Datos.
+La primera vez, la biblioteca aparece vacía — hay un botón para **cargar una biblioteca de ejemplo** (25 libros con citas, personajes y progreso) si querés ver la app en uso antes de cargar tus propios libros. Se borra con un click desde Ajustes → Datos.
 
 ---
 

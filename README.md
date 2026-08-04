@@ -44,7 +44,7 @@ Vive en tu computadora. Corre con un comando. Tus datos nunca salen de tu máqui
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/bookdetail.jpg" width="800" alt="Detalle de libro en ReadingHub"><br>
+  <img src="docs/screenshots/stats.jpg" width="800" alt="Detalle de libro en ReadingHub"><br>
   <em>Estadísticas — análisis de lectura, comparativa de años</em>
 </p>
 
